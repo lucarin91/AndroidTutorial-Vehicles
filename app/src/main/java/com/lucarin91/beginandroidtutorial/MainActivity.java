@@ -1,7 +1,11 @@
 package com.lucarin91.beginandroidtutorial;
 
-import android.support.v7.app.ActionBarActivity;
+import android.app.Activity;
+import android.app.ActivityManager;
+import android.content.DialogInterface;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -20,7 +24,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 
-public class MainActivity extends ActionBarActivity {
+public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,10 +55,19 @@ public class MainActivity extends ActionBarActivity {
 
             @Override
             public void onError(IOException e) {
+                Log.e("MAIN", e.getMessage());
+                bar.setVisibility(View.GONE);
                 Toast.makeText(getApplicationContext(), "Connection Error", Toast.LENGTH_SHORT).show();
             }
         });
 
+        list.setOnClickListener(new View.OnClickListener(){
+
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
     }
 
 

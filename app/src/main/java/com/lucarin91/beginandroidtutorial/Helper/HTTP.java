@@ -17,10 +17,11 @@ import java.net.URL;
  */
 public class HTTP {
 
-    final static String BASE = "http://127.0.0.1:8080";
+    final static String BASE = "http://192.168.2.13:8080";
 
     public static void asyncDownload (final String url, final CallBack callback){
         new AsyncTask<Void, Void, String>() {
+            IOException error;
 
             @Override
             protected void onPreExecute() {
@@ -33,7 +34,7 @@ public class HTTP {
                     return getUrl(new URL(BASE + url));
                 } catch (IOException e) {
                     e.printStackTrace();
-                    callback.onError(e);
+                    error = e;
                     return null;
 
                 }
@@ -43,6 +44,9 @@ public class HTTP {
             protected void onPostExecute(String data) {
                 if(data != null)
                     callback.onPostExecution(data);
+                else
+                    callback.onError(error);
+
             }
         }.execute(null, null, null);
     };

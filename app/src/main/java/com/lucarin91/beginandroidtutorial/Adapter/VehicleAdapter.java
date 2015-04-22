@@ -11,6 +11,8 @@ import android.widget.TextView;
 import com.lucarin91.beginandroidtutorial.Model.Vehicle;
 import com.lucarin91.beginandroidtutorial.R;
 
+import org.json.JSONObject;
+
 import java.util.ArrayList;
 
 /**
