@@ -17,7 +17,7 @@ import java.net.URL;
  */
 public class HTTP {
 
-    final static String BASE = "http://192.168.2.13:8080";
+    final static String BASE = "http://android-tutorial.sfcoding.com";
 
     public static void asyncDownload (final String url, final CallBack callback){
         new AsyncTask<Void, Void, String>() {
